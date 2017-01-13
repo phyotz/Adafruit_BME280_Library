@@ -14,8 +14,19 @@ Supply Ground     ==> GND Pin of sensor & GND Pin of BluzDK <br />
 SCK Pin of sensor ==> D1 Pin of BluzDK <br />
 SD1 Pin of sensor ==> D0 Pin of BluzDK <br />
 
+**Original readme from Adafruit**
 
 This sensor uses I2C to communicate with BluzDK, up to 4 pins are required to interface
+
+This is a library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor
+
+Designed specifically to work with the Adafruit BME280 Breakout
+
+http://www.adafruit.com/products/2652
+These sensors use I2C or SPI to communicate, up to 4 pins are required to interface
+
+Written by Limor Fried/Ladyada for Adafruit Industries.
+BSD license, all text above must be included in any redistribution
 
 Adafruit invests time and resources providing this open source code, 
 please support Adafruit and open-source hardware by purchasing 

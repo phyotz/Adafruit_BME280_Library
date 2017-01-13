@@ -1,3 +1,4 @@
+/* This file is downloaded from https://github.com/mhaack/Adafruit_BME280_Library/blob/master/firmware/Adafruit_Sensor.h */
 /*
 * Copyright (C) 2008 The Android Open Source Project
 *

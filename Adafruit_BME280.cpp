@@ -14,9 +14,8 @@
   Written by Limor Fried & Kevin Townsend for Adafruit Industries.
   BSD license, all text above must be included in any redistribution
  ***************************************************************************/
-#include "Arduino.h"
-#include <Wire.h>
-#include <SPI.h>
+#include "application.h"
+#include "math.h"
 #include "Adafruit_BME280.h"
 
 
@@ -65,7 +64,7 @@ bool Adafruit_BME280::begin(uint8_t a) {
   readCoefficients();
 
   //Set before CONTROL_meas (DS 5.4.3)
-  write8(BME280_REGISTER_CONTROLHUMID, 0x05); //16x oversampling 
+  write8(BME280_REGISTER_CONTROLHUMID, 0x05); //16x oversampling
 
   write8(BME280_REGISTER_CONTROL, 0xB7); // 16x ovesampling, normal mode
   return true;
@@ -103,13 +102,13 @@ void Adafruit_BME280::write8(byte reg, byte value)
     Wire.endTransmission();
   } else {
     if (_sck == -1)
-      SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      //SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg & ~0x80); // write, bit 7 low
     spixfer(value);
     digitalWrite(_cs, HIGH);
-    if (_sck == -1)
-      SPI.endTransaction();              // release the SPI bus
+    //if (_sck == -1)
+      //SPI.endTransaction();              // release the SPI bus
   }
 }
 
@@ -131,13 +130,13 @@ uint8_t Adafruit_BME280::read8(byte reg)
 
   } else {
     if (_sck == -1)
-      SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      //SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg | 0x80); // read, bit 7 high
     value = spixfer(0);
     digitalWrite(_cs, HIGH);
-    if (_sck == -1)
-      SPI.endTransaction();              // release the SPI bus
+    //if (_sck == -1)
+      //SPI.endTransaction();              // release the SPI bus
   }
   return value;
 }
@@ -160,13 +159,13 @@ uint16_t Adafruit_BME280::read16(byte reg)
 
   } else {
     if (_sck == -1)
-      SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      //SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg | 0x80); // read, bit 7 high
     value = (spixfer(0) << 8) | spixfer(0);
     digitalWrite(_cs, HIGH);
-    if (_sck == -1)
-      SPI.endTransaction();              // release the SPI bus
+    //if (_sck == -1)
+      //SPI.endTransaction();              // release the SPI bus
   }
 
   return value;
@@ -211,7 +210,7 @@ uint32_t Adafruit_BME280::read24(byte reg)
     Wire.write((uint8_t)reg);
     Wire.endTransmission();
     Wire.requestFrom((uint8_t)_i2caddr, (byte)3);
-    
+
     value = Wire.read();
     value <<= 8;
     value |= Wire.read();
@@ -220,10 +219,10 @@ uint32_t Adafruit_BME280::read24(byte reg)
 
   } else {
     if (_sck == -1)
-      SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      //SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg | 0x80); // read, bit 7 high
-    
+
     value = spixfer(0);
     value <<= 8;
     value |= spixfer(0);
@@ -231,8 +230,8 @@ uint32_t Adafruit_BME280::read24(byte reg)
     value |= spixfer(0);
 
     digitalWrite(_cs, HIGH);
-    if (_sck == -1)
-      SPI.endTransaction();              // release the SPI bus
+    //if (_sck == -1)
+      //SPI.endTransaction();              // release the SPI bus
   }
 
   return value;
@@ -381,8 +380,8 @@ float Adafruit_BME280::readAltitude(float seaLevel)
 
 /**************************************************************************/
 /*!
-    Calculates the pressure at sea level (in hPa) from the specified altitude 
-    (in meters), and atmospheric pressure (in hPa).  
+    Calculates the pressure at sea level (in hPa) from the specified altitude
+    (in meters), and atmospheric pressure (in hPa).
     @param  altitude      Altitude in meters
     @param  atmospheric   Atmospheric pressure in hPa
 */
@@ -395,6 +394,6 @@ float Adafruit_BME280::seaLevelForAltitude(float altitude, float atmospheric)
   // Note that using the equation from wikipedia can give bad results
   // at high altitude.  See this thread for more information:
   //  http://forums.adafruit.com/viewtopic.php?f=22&t=58064
-  
+
   return atmospheric / pow(1.0 - (altitude/44330.0), 5.255);
 }

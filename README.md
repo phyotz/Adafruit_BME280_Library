@@ -1,4 +1,4 @@
-This is a modified library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor specifically for Bluz Platorm.
+This is a modified library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor specifically for Bluz Platform.
 
 Keep in mind, this **only** works for i2c communication method.
 

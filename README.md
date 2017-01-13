@@ -2,6 +2,9 @@ This is a modified library for the Adafruit BME280 Humidity, Barometric Pressure
 
 Based on original work done by @adafruit and @mhaack.
 
+* https://github.com/adafruit/Adafruit_BME280_Library
+* https://github.com/mhaack/Adafruit_BME280_Library
+
 This sensor uses I2C to communicate with BluzDK, up to 4 pins are required to interface.
 
 Keep in mind, this **only** works for i2c communication method.

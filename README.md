@@ -1,4 +1,6 @@
-This is a modified library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor specifically for Bluz Platform.
+This is a modified library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor specifically for **Bluz Platform**.
+
+Based on original work done by @adafruit and @mhaack.
 
 Keep in mind, this **only** works for i2c communication method.
 
@@ -7,13 +9,13 @@ Designed specifically to work with the Adafruit BME280 Breakout
 
 **Hardware Interfacing**
 
-3.3V supply       ==> VIN Pin of sensor & VIN Pin of BluzDK
-Supply Ground     ==> GND Pin of sensor & GND Pin of BluzDK
-SCK Pin of sensor ==> D1 Pin of BluzDK
-SD1 Pin of sensor ==> D0 Pin of BluzDK
+3.3V supply       ==> VIN Pin of sensor & VIN Pin of BluzDK <br />
+Supply Ground     ==> GND Pin of sensor & GND Pin of BluzDK <br />
+SCK Pin of sensor ==> D1 Pin of BluzDK <br />
+SD1 Pin of sensor ==> D0 Pin of BluzDK <br />
 
 
-These sensors use I2C to communicate, up to 4 pins are required to interface
+This sensor uses I2C to communicate with BluzDK, up to 4 pins are required to interface
 
 Adafruit invests time and resources providing this open source code, 
 please support Adafruit and open-source hardware by purchasing 

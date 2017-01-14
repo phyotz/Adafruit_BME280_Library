@@ -1,5 +1,7 @@
 This is a modified library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor specifically for **Bluz Platform**.
 
+Sensor : * http://www.adafruit.com/products/2652
+
 Based on original work done by @adafruit and @mhaack.
 
 * https://github.com/adafruit/Adafruit_BME280_Library
@@ -11,8 +13,7 @@ Keep in mind, this **only** works for i2c communication method.
 
 Only tested with firmeware version **1.1.47**.
 
-Designed specifically to work with the Adafruit BME280 Breakout 
- * http://www.adafruit.com/products/2652
+
 
 **Hardware Interfacing**
 

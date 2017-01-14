@@ -9,6 +9,8 @@ This sensor uses I2C to communicate with BluzDK, up to 4 pins are required to in
 
 Keep in mind, this **only** works for i2c communication method.
 
+Only tested with firmeware version **1.1.47**.
+
 Designed specifically to work with the Adafruit BME280 Breakout 
  * http://www.adafruit.com/products/2652
 
